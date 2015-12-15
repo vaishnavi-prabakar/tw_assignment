@@ -21,24 +21,31 @@ public class HelloWorld{
 
 
      public static void main(String []args){
-         int n=Integer.parseInt(getUserInput("enter the number"));
-         for(int k=1;k<=n;k++)
+         String userInput=getUserInput("enter the string");
+         int n=userInput.length();
+         if(n%2!=1)
+         n=n+1;
+         for(int k=1;k<=n-2;k++)
          {
          
-         for (int j=n-k;j>=1;j--)
+         for (int j=n-k-1;j>=1;j--)
         System.out.print(" ");
-        for(int i=1;i<=((2*k)-1);i++)
+        for(int i=1;i<((2*k)-2);i++)
          
         System.out.print("*");
          
          System.out.println();
      }
-     for(int x=1;x<=n;x++)
+     
+     
+     System.out.print(userInput);
+     System.out.println();
+     for(int x=1;x<n;x++)
          {
          
-         for (int y=0;y<x-1;y++)
+         for (int y=1;y<=x;y++)
         System.out.print(" ");
-        for(int z=((2*n)-1)-(2*(x-1));z>=1;z--)
+        for(int z=n-(2*x);z>=1;z--)
          
         System.out.print("*");
          
