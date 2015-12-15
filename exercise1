@@ -1,6 +1,29 @@
 import java.io.*;
-public class exercise1{
+import java.util.*;
+
+public class HelloWorld{
+    public static String getUserInput(String prompt)
+    {
+    String inputLine=null;
+    System.out.print(prompt+" ");
+    try
+    {
+        BufferedReader is= new BufferedReader(new InputStreamReader(System.in));
+        inputLine=is.readLine();
+        if(inputLine.length()==0) return null;
+    }
+    catch(IOException e)
+    {
+        System.out.println("IOException: "+e);
+    }
+    return inputLine;
+    }
+
 
      public static void main(String []args){
-System.out.print(“*”);     }
+         int n=Integer.parseInt(getUserInput("enter the number"));
+         for(int i=1;i<=n;i++)
+        System.out.print("*");
+     }
 }
+
