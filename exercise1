@@ -33,5 +33,16 @@ public class HelloWorld{
          
          System.out.println();
      }
+     for(int x=1;x<=n;x++)
+         {
+         
+         for (int y=0;y<x-1;y++)
+        System.out.print(" ");
+        for(int z=((2*n)-1)-(2*(x-1));z>=1;z--)
+         
+        System.out.print("*");
+         
+         System.out.println();
+     }
      }
 }
