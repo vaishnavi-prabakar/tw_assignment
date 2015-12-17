@@ -1,0 +1,35 @@
+import java.math.*;
+public class billing {
+    int size;
+    double totalSalesTax=0;
+    double totalPrice=0;
+    public void calculateBill (ArrayList<userInput> billList)
+    {
+      size=billList.size();
+        for(int x=0;x<size;x++)
+        {
+
+            if(billList.get(x).isImport)
+                System.out.print("1 imported ");
+            else
+                System.out.println("1 ");
+            System.out.print(billList.get(x).name+" - "+billList.get(x).price);
+            totalSalesTax+=billList.get(x).sales_tax;
+            totalPrice+=billList.get(x).price;
+        }
+        System.out.println();
+        totalSalesTax=(int)(totalSalesTax*100);
+        if(totalSalesTax%5==0)
+            totalSalesTax+=0;
+        else if(totalSalesTax%5<=2)
+        totalSalesTax=totalSalesTax+(totalSalesTax%5);
+        else
+            totalSalesTax=totalSalesTax-(totalSalesTax%5);
+
+
+        System.out.println("Sales taxes -"+ totalSalesTax/100);
+        totalPrice+=totalSalesTax;
+        System.out.println("Total - "+totalPrice);
+
+    }
+}
