@@ -1,0 +1,62 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/**
+ * Created by pvaishna on 12/16/15.
+ */
+import java.io.*;
+import java.util.*;
+public class initiator {
+    public static String getUserInput(String prompt)
+    {
+        String inputLine=null;
+        System.out.print(prompt+" ");
+        try
+        {
+            BufferedReader is= new BufferedReader(new InputStreamReader(System.in));
+            inputLine=is.readLine();
+            if(inputLine.length()==0) return null;
+        }
+        catch(IOException e)
+        {
+            System.out.println("IOException: "+e);
+        }
+        return inputLine;
+    }
+
+    public static void main(String[] args)
+    {
+        int i=0,j=0;
+        ArrayList<userInput> myList = new ArrayList<userInput>();
+        while(i==0) {
+            myList.add(new userInput());
+            String inputName = getUserInput("enter the name of the product");
+            myList.get(j).setName(inputName);
+            String inputType = getUserInput("enter the category");
+            myList.get(j).setType(inputType);
+            String inputPrice = getUserInput("enter the Price");
+            myList.get(j).setPrice(Double.parseDouble(inputPrice));
+            String importType = getUserInput("is it imported? y/n");
+            if(importType.equals("y"))
+                myList.get(j).setImport(true);
+            else
+                myList.get(j).setImport(false);
+            String moreInput= getUserInput("are there any more products? y/n");
+            if(moreInput.equals("n"))
+                i=1;
+            else j++;
+        }
+        myList.get(j).setCount(j+1);
+        salesTax calc = new salesTax();
+        for(int n=0;n<=j;n++)
+        {
+            calc.calculate(myList.get(n));
+
+        }
+        billing bill= new billing();
+        bill.calculateBill(myList);
+
+
+    }
+}
