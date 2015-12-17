@@ -1,0 +1,21 @@
+/**
+ * Created by pvaishna on 12/16/15.
+ */
+public class salesTax {
+
+public void calculate(userInput obj)
+
+{
+
+    if((obj.type.equals("food"))||(obj.type.equals("book"))||(obj.type.equals("medical")))
+        obj.sales_tax=0;
+    else
+    obj.sales_tax=0.1*obj.price;
+
+    if(obj.isImport)
+        obj.sales_tax+=0.05*obj.price;
+    else
+        obj.sales_tax+=0;
+
+}
+}
